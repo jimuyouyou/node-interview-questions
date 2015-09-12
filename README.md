@@ -15,9 +15,43 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 - 终极目标是让大家对node有一个快速完整的认识
 
 # 内容大纲
-- javascript高级话题(面向对象，作用域，闭包，设计模式等)
-．node核心内置类库(事件，流，文件，网络等)
-．node高级话题(异步，部署，性能调优，异常调试等)
-- 常用知名第三方类库(Async, Express等)
-- 其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)
-- 常用前端技术(Html5, CSS3, JQuery等)
+- [javascript高级话题(面向对象，作用域，闭包，设计模式等)] (#jsAdvanced)
+- [node核心内置类库(事件，流，文件，网络等)] (#nodeCore)
+- [node高级话题(异步，部署，性能调优，异常调试等)] (#nodeAdvanced)
+- [常用知名第三方类库(Async, Express等)] (#node3rd)
+- [其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)] (#otherBackend)
+- [常用前端技术(Html5, CSS3, JQuery等)] (#otherFrontEnd)
+
+## <a name="jsAdvanced">javascript高级话题(面向对象，作用域，闭包，设计模式等)</a>
+1. 常用js类定义的方法有哪些？
+1.1 答案：主要有构造函数原型和对象创建两种方法。原型法是通用老方法，对象创建是ES5推荐使用的方法.目前来看，原型法更普遍．
+1.2 演示
+1) 构造函数方法定义类
+	function Person(){
+		this.name = 'michaelqin';
+	}
+	Person.prototype.sayName = function(){
+		alert(this.name);
+	}
+
+	var person = new Person();
+	person.sayName();
+2) 对象创建方法定义类
+	var Person = {
+		name: 'michaelqin',
+		sayName: function(){ alert(this.name); }
+	};
+
+	var person = Object.create(Person);
+	person.sayName();
+
+## <a name="nodeCore">node核心内置类库(事件，流，文件，网络等)</a>
+
+## <a name="nodeAdvanced">node高级话题(异步，部署，性能调优，异常调试等)</a>
+
+## <a name="node3rd">常用知名第三方类库(Async, Express等)</a>
+
+## <a name="otherBackend">其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)</a>
+
+## <a name="otherFrontEnd">常用前端技术(Html5, CSS3, JQuery等)</a>
+
