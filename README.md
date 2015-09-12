@@ -23,10 +23,15 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 - [常用前端技术(Html5, CSS3, JQuery等)] (#otherFrontEnd)
 
 ## <a name="jsAdvanced">javascript高级话题(面向对象，作用域，闭包，设计模式等)</a>
-1. 常用js类定义的方法有哪些？
-1.1 答案：主要有构造函数原型和对象创建两种方法。原型法是通用老方法，对象创建是ES5推荐使用的方法.目前来看，原型法更普遍．
-1.2 演示
-1) 构造函数方法定义类
+1. 常用js类定义的方法有哪些？  
+
+1.1 答案：主要有构造函数原型和对象创建两种方法。原型法是通用老方法，对象创建是ES5推荐使用的方法.目前来看，原型法更普遍.  
+
+1.2 演示  
+
+1) 构造函数方法定义类  
+
+```javascript
 	function Person(){
 		this.name = 'michaelqin';
 	}
@@ -36,7 +41,10 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 
 	var person = new Person();
 	person.sayName();
-2) 对象创建方法定义类
+```
+2) 对象创建方法定义类  
+
+```
 	var Person = {
 		name: 'michaelqin',
 		sayName: function(){ alert(this.name); }
@@ -44,6 +52,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 
 	var person = Object.create(Person);
 	person.sayName();
+```
 
 ## <a name="nodeCore">node核心内置类库(事件，流，文件，网络等)</a>
 
