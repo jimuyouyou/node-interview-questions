@@ -10,7 +10,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 # 目标与原则
 - 前后端兼顾，更侧重后端
 - 理论实战兼顾，侧重考察对实战中应用较多的理论的理解
-- 答案简单明了，一针见血，不为追求严谨而浪费口舌，绕弯子
+- 参考答案简单明了，一针见血，不为追求严谨而浪费口舌，绕弯子
 - 尽量用代码讲清理论的应用与区别，以接地气
 - 终极目标是让大家对node有一个快速完整的认识
 
@@ -25,9 +25,9 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 ## <a name="jsAdvanced">javascript高级话题(面向对象，作用域，闭包，设计模式等)</a>
 - 1. 常用js类定义的方法有哪些？  
 
-答案：主要有构造函数原型和对象创建两种方法。原型法是通用老方法，对象创建是ES5推荐使用的方法.目前来看，原型法更普遍.  
+参考答案：主要有构造函数原型和对象创建两种方法。原型法是通用老方法，对象创建是ES5推荐使用的方法.目前来看，原型法更普遍.  
 
-演示  
+代码演示  
 1) 构造函数方法定义类  
 ```javascript
 	function Person(){
@@ -52,10 +52,10 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 ```
 - 2. js类继承的方法有哪些  
 
-答案：原型链法，属性复制法和构造器应用法.  另外，由于每个对象可以是一个类，这些方法也可以用于对象类的继承．
+参考答案：原型链法，属性复制法和构造器应用法.  另外，由于每个对象可以是一个类，这些方法也可以用于对象类的继承．
 
 
-演示  
+代码演示  
 1) 原型链法  
 ```javascript
 	function Animal() {
@@ -97,18 +97,17 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 	function Person() {
 		Animal.call(this); // apply, call, bind方法都可以．细微区别，后面会提到．
 	}
-
 ```
 
 - 3. js类多重继承的实现方法是怎么样的?  
 
-答案：就是类继承里边的属性复制法来实现．因为当所有父类的prototype属性被复制后，子类自然拥有类似行为和属性．
+参考答案：就是类继承里边的属性复制法来实现．因为当所有父类的prototype属性被复制后，子类自然拥有类似行为和属性．
 
 - 4. js里的作用域是什么样子的？  
 
-答案：大多数语言里边都是块作作用域，以{}进行限定，js里边不是．js里边叫函数作用域，就是一个变量在全函数里有效．比如有个变量p1在函数最后一行定义，第一行也有效，但是值是undefined.  
+参考答案：大多数语言里边都是块作作用域，以{}进行限定，js里边不是．js里边叫函数作用域，就是一个变量在全函数里有效．比如有个变量p1在函数最后一行定义，第一行也有效，但是值是undefined.  
 
-演示  
+代码演示  
 ```javascript
 	var globalVar = 'global var';
 
@@ -119,6 +118,53 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 	}
 	alert(globalVar); // global var，使用全局变量
 ```
+
+- 5. js里边的this指的是什么?  
+参考答案: this指的是对象本身，而不是构造函数．
+
+代码演示
+```javascript
+	function Person() {
+	}
+	Person.prototype.sayName() { alert(this.name); }
+
+	var person1 = new Person();
+	person1.name = 'michaelqin';
+	person1.sayName(); // michaelqin
+```
+- 6. apply, call和bind有什么区别?
+参考答案：三者都可以把一个函数应用到其他对象上，注意不是自身对象．apply,call是直接执行函数调用，bind是绑定，执行需要再次调用．apply和call的区别是apply接受数组作为参数，而call是接受逗号分隔的无限多个参数列表，
+
+代码演示  
+```javascript
+	function Person() {
+	}
+	Person.prototype.sayName() { alert(this.name); }
+	
+	var obj = {name: 'michaelqin'}; // 注意这是一个普通对象，它不是Person的实例
+	1) apply
+	Person.prototype.sayName.apply(obj, [param1, param2, param3]);
+	
+	2) call
+	Person.prototype.sayName.call(obj, param1, param2, param3);
+
+	3) bind
+	var sn = Person.prototype.sayName.bind(obj);	
+	sn([param1, param2, param3]); // bind需要先绑定，再执行 
+	sn(param1, param2, param3); // bind需要先绑定，再执行
+```
+- 7. caller, calle和arguments分别是什么?
+
+- 8. 什么是闭包，闭包有哪些用处?
+
+- 9. defineProperty, hasOwnProperty, isEnumerable都是做什么用的？
+
+- 10. js常用设计模式的实现思路，单例，工厂，代理，装饰，观察者模式等
+
+- 11. 列举数组相关的常用方法
+
+- 12. 列举字符串相关的常用方法
+
 
 ## <a name="nodeCore">node核心内置类库(事件，流，文件，网络等)</a>
 
