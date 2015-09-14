@@ -120,6 +120,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 ```
 
 - 5. js里边的this指的是什么?    
+
 参考答案: this指的是对象本身，而不是构造函数．
 
 代码演示
@@ -133,6 +134,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 	person1.sayName(); // michaelqin
 ```
 - 6. apply, call和bind有什么区别?  
+
 参考答案：三者都可以把一个函数应用到其他对象上，注意不是自身对象．apply,call是直接执行函数调用，bind是绑定，执行需要再次调用．apply和call的区别是apply接受数组作为参数，而call是接受逗号分隔的无限多个参数列表，
 
 代码演示  
@@ -268,6 +270,38 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 参考答案: indexOf/lastIndexOf/charAt, split/match/test, slice/substring/substr, toLowerCase/toUpperCase
 
 ## <a name="nodeCore">node核心内置类库(事件，流，文件，网络等)</a>
+### node概览
+
+- 1. 为什么要用node?  
+
+参考答案:   
+
+- 2. node的构架是什么样子的?  
+
+参考答案:    
+
+- 3. node有哪些核心模块?  
+
+参考答案:    
+
+### node全局对象
+- 1. 为什么要用node?  
+
+参考答案:    
+
+- 1. 为什么要用node?  
+
+参考答案:    
+
+- 1. 为什么要用node?  
+
+参考答案:    
+
+- 1. 为什么要用node?  
+
+参考答案:    
+
+
 
 ## <a name="nodeAdvanced">node高级话题(异步，部署，性能调优，异常调试等)</a>
 
