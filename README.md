@@ -153,14 +153,51 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 	sn([param1, param2, param3]); // bind需要先绑定，再执行 
 	sn(param1, param2, param3); // bind需要先绑定，再执行
 ```
-- 7. caller, calle和arguments分别是什么?
+- 7. caller, callee和arguments分别是什么?
+参考答案: caller,callee之间的关系就像是employer和employee之间的关系，就是调用与被调用的关系，二者返回的都是函数对象引用．arguments是函数的所有参数列表，它是一个类数组的变量．
 
+代码演示  
+```javascript
+	function parent(param1, param2, param3) {
+		child(param1, param2, param3);
+	}
+
+	function child() {
+		console.log(arguments); // { '0': 'mqin1', '1': 'mqin2', '2': 'mqin3' }
+		console.log(arguments.callee); // [Function: child]
+		console.log(child.caller); // [Function: parent]
+	}
+
+	parent('mqin1', 'mqin2', 'mqin3');
+```
 - 8. 什么是闭包，闭包有哪些用处?
+参考答案: 闭包这个术语，无论中文翻译还是英文解释都太２Ｂ了，我必须骂人，因为它什么其实都不是．非要讲它是什么的话，两个字函数，更多字嵌套函数的父子自我引用关系．所有函数都是闭包．通俗的说，闭包就是作用域范围，因为js是函数作用域，所以函数就是闭包．全局函数的作用域范围就是全局，所以无须讨论．更多的应用其实是在内嵌函数，这就会涉及到内嵌作用域，或者叫作用域链．说到内嵌，其实就是父子引用关系(父函数包含子函数，子函数因为函数作用域又引用父函数，这它妈不是死结吗？所以叫闭包），这就会带来另外一个问题，什么时候引用结束？如果不结束，就会一直占用内存，引起内存泄漏．好吧，不用的时候就引用设为空，死结就解开了．
 
 - 9. defineProperty, hasOwnProperty, isEnumerable都是做什么用的？
+参考答案：Object.defineProperty(obj, prop, descriptor)用来给对象定义属性,有value,writable,configurable,enumerable,set/get等.hasOwnProerty用于检查某一属性是不是存在于对象本身，继承来的父亲的属性不算．isEnumerable用来检测某一属性是否可遍历，也就是能不能用for..in循环来取到.
 
 - 10. js常用设计模式的实现思路，单例，工厂，代理，装饰，观察者模式等
+参考答案：
+```javascript
+	1) 单例：　任意对象都是单例，无须特别处理
+	var obj = {name: 'michaelqin', age: 30};
 
+	2) 工厂: 就是同样形式参数返回不同的实例
+```javascript
+	function Person() { this.name = 'Person1'; }
+	function Animal() { this.name = 'Animal1'; }
+
+	function Factory() {}
+	Factory.prototype.getInstance = function(className) {
+		return eval('new ' + className + '()');
+	}
+
+	var factory = new Factory();
+	var obj1 = factory.getInstance('Person');
+	var obj2 = factory.getInstance('Animal');
+	console.log(obj1.name); // Person1
+	console.log(obj2.name); // Animal1
+```
 - 11. 列举数组相关的常用方法
 
 - 12. 列举字符串相关的常用方法
