@@ -274,61 +274,109 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 
 - 1. 为什么要用node?  
 
-参考答案:   
+参考答案:  总结起来node有以下几个特点:简单强大，轻量可扩展．简单体现在node使用的是javascript,json来进行编码，人人都会；强大体现在非阻塞IO,可以适应分块传输数据，较慢的网络环境，尤其擅长高并发访问；轻量体现在node本身既是代码，又是服务器，前后端使用统一语言;可扩展体现在可以轻松应对多实例，多服务器架构，同时有海量的第三方应用组件．
 
 - 2. node的构架是什么样子的?  
 
-参考答案:    
+参考答案: 主要分为三层，应用app >> V8及node内置架构 >> 操作系统. V8是node运行的环境，可以理解为node虚拟机．node内置架构又可分为三层: 核心模块(javascript实现) >> c++绑定 >> libuv + CAes + http.
+
+<img src="http://joaopsilva.github.io/talks/End-to-End-JavaScript-with-the-MEAN-Stack/img/nodejs-arch-ppt.png" alt="">
 
 - 3. node有哪些核心模块?  
 
-参考答案:    
+参考答案:  EventEmitter, Stream, FS, Net和全局对象 
 
 ### node全局对象
 - 1. node有哪些全局对象?  
 
-参考答案:    
+参考答案: process, console, Buffer和exports
 
 - 2. process有哪些常用方法?  
 
-参考答案:    
+参考答案: process.stdin, process.stdout, process.stderr, process.on, process.env, process.argv, process.arch, process.platform, process.exit
 
 - 3. console有哪些常用方法?  
 
-参考答案:    
+参考答案: console.log/console.info, console.error/console.warning, console.time/console.timeEnd, console.trace, console.table
 
 - 4. node有哪些定时功能?  
 
-参考答案:    
+参考答案: setTimeout/clearTimeout, setInterval/clearInterval, setImmediate/clearImmediate, process.nextTick   
 
 - 5. node中的事件循环是什么样子的?  
 
-参考答案:      
+参考答案: event loop其实就是一个事件队列，先加入先执行，执行完一次队列，再次循环遍历看有没有新事件加入队列．执行中的叫IO events, setImmediate是在当前队列立即执行,setTimout/setInterval是把执行定时到下一个队列，process.nextTick是在当前执行完，下次遍历前执行．所以总体顺序是: IO events >> setImmediate >> setTimeout/setInterval >> process.nextTick
 
 - 6. node中的Buffer如何应用?  
 
-参考答案:        
+参考答案: Buffer是用来处理二进制数据的，比如图片，mp3,数据库文件等.Buffer支持各种编码解码，二进制字符串互转．      
 
 ### EventEmitter
 - 1. 什么是EventEmitter?  
 
-参考答案:    
+参考答案: EventEmitter是node中一个实现观察者模式的类，主要功能是监听和发射消息，用于处理多模块交互问题.
 
 - 2. 如何实现一个EventEmitter?  
 
-参考答案:    
+参考答案:  主要分三步：定义一个子类，调用构造函数，继承EventEmitter
+
+代码演示  
+```javascript
+	var util = require('util');
+	var EventEmitter = require('events').EventEmitter;
+
+	function MyEmitter() {
+		EventEmitter.call(this);
+	} // 构造函数
+
+	util.inherits(MyEmitter, EventEmitter); // 继承
+
+	var em = new MyEmitter();
+	em.on('hello', function(data) {
+		console.log('收到事件hello的数据:', data);
+	}); // 接收事件，并打印到控制台
+	em.emit('hello', 'EventEmitter传递消息真方便!');
+```
 
 - 3. EventEmitter有哪些典型应用?  
 
-参考答案:    
+参考答案: 1) 模块间传递消息 2) 回调函数内外传递消息 3) 处理流数据，因为流是在EventEmitter基础上实现的. 4) 观察者模式发射触发机制相关应用  
 
 - 4. 怎么捕获EventEmitter的错误事件?  
 
-参考答案:    
+参考答案:  监听error事件即可．如果有多个EventEmitter,也可以用domain来统一处理错误事件.
+
+代码演示  
+```javascript
+	var domain = require('domain');
+	var myDomain = domain.create();
+	myDomain.on('error', function(err){
+		console.log('domain接收到的错误事件:', err);
+	}); // 接收事件并打印
+	myDomain.run(function(){
+		var emitter1 = new MyEmitter();
+		emitter1.emit('error', '错误事件来自emitter1');
+		emitter2 = new MyEmitter();
+		emitter2.emit('error', '错误事件来自emitter2');
+	});
+```
 
 - 5. EventEmitter中的newListenser事件有什么用处?  
 
-参考答案:       
+参考答案: newListener可以用来做事件机制的反射，特殊应用，事件管理等．当任何on事件添加到EventEmitter时，就会触发newListener事件，基于这种模式，我们可以做很多自定义处理.
+
+代码演示  
+```javascript
+var emitter3 = new MyEmitter();
+emitter3.on('newListener', function(name, listener) {
+	console.log("新事件的名字:", name);
+	console.log("新事件的代码:", listener);
+	setTimeout(function(){ console.log("我是自定义延时处理机制"); }, 1000);
+});
+emitter3.on('hello', function(){
+	console.log('hello　node');
+});
+```
 
 ### Stream
 - 1. 什么是Stream?  
