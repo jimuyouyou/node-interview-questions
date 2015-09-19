@@ -547,9 +547,122 @@ process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为
 参考答案:  node --debug app.js 和node-inspector
 
 
-## <a name="node3rd">常用知名第三方类库(Async, Express等)</a>
+## <a name="node3rd">常用知名第三方类库(Async, Express等)</a>  
+- 1. async都有哪些常用方法，分别是怎么用?  
 
-## <a name="otherBackend">其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)</a>
+参考答案: async是一个js类库，它的目的是解决js中异常流程难以控制的问题．async不仅适用在node.js里，浏览器中也可以使用．
+1) async.parallel并行执行完多个函数后，调用结束函数
+```javascript
+	async.parallel([
+	    function(){ ... },
+	    function(){ ... }
+	], callback);
+```
+
+2) async.series串行执行完多个函数后，调用结束函数
+```javascript
+	async.series([
+	    function(){ ... },
+	    function(){ ... }
+	]);
+```
+
+3) async.waterfall依次执行多个函数，后一个函数以前面函数的结果作为输入参数
+```javascript
+	async.waterfall([
+	    function(callback) {
+	        callback(null, 'one', 'two');
+	    },
+	    function(arg1, arg2, callback) {
+	      // arg1 now equals 'one' and arg2 now equals 'two' 
+	        callback(null, 'three');
+	    },
+	    function(arg1, callback) {
+	        // arg1 now equals 'three' 
+	        callback(null, 'done');
+	    }
+	], function (err, result) {
+	    // result now equals 'done' 
+	});
+```
+
+4) async.map异步执行多个数组，返回结果数组
+```javascript
+	async.map(['file1','file2','file3'], fs.stat, function(err, results){
+	    // results is now an array of stats for each file 
+	});
+```
+
+5) async.filter异步过滤多个数组，返回结果数组
+```javascript
+	async.filter(['file1','file2','file3'], fs.exists, function(results){
+	    // results now equals an array of the existing files 
+	});
+```
+- 2. express项目的目录大致是什么样子的
+
+参考答案: app.js, package.json, bin/www, public, routes, views.
+
+- 3. express常用函数
+
+参考答案:  express.Router路由组件,app.get路由定向，app.configure配置，app.set设定参数,app.use使用中间件
+
+- 4. express中如何获取路由的参数
+
+参考答案: /users/:name使用req.params.name来获取; req.body.username则是获得表单传入参数username; express路由支持常用通配符 ?, +, *, and ()
+
+- 5. express response有哪些常用方法
+
+参考答案: 
+res.download()	弹出文件下载  
+res.end()	结束response  
+res.json()	返回json  
+res.jsonp()	返回jsonp  
+res.redirect()	重定向请求  
+res.render()	渲染模板  
+res.send()	返回多种形式数据  
+res.sendFile	返回文件  
+res.sendStatus()	返回状态  
+
+## <a name="otherBackend">其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)</a>      
+
+- 1. mongodb有哪些常用优化措施
+
+参考答案: 类似传统数据库，索引和分区．      
+
+- 2. redis支持哪些功能
+
+参考答案: set/get, hset/hget, publish/subscribe, expire     
+
+- 3. redis最简单的应用
+
+参考答案: 
+```javascript
+	var redis = require("redis"),
+	    client = redis.createClient();
+
+	client.set("foo_rand000000000000", "some fantastic value");
+	client.get("foo_rand000000000000", function (err, reply) {
+	    console.log(reply.toString());
+	});
+	client.end();
+```
+
+- 4. apache,nginx有什么区别?
+
+参考答案: 二者都是代理服务器，功能类似．apache应用简单，相当广泛．nginx在分布式，静态转发方面比较有优势．
 
 ## <a name="otherFrontEnd">常用前端技术(Html5, CSS3, JQuery等)</a>
+
+- 1. Html5有哪些比较实用新功能
+
+参考答案: File API支持本地文件操作; Canvans/SVG支持绘图; 拖拽功能支持; 本地存储支持; 表单多属性验证支持; 原生音频视频支持等
+
+- 2. CSS3/JQuery有哪些学常见选择器
+
+参考答案: id, 元素，属性, 值，父子兄弟, 序列等
+
+- 3. JQuery有哪些经典应用
+
+参考答案: 文档选择，文档操作，动画, ajax, json, js扩展等.
 
