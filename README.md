@@ -1,6 +1,9 @@
 # node-interview-questions
 Node是搞后端的，不应该被被归为前端，更不应该用前端的观点去理解，去面试node开发人员。所以这份面试题大全，更侧重后端应用与对Node核心的理解。
 
+# node开发技能图解  
+<img src="node_skillset.jpg" alt="">
+
 # 起源
 - node正风生火起，很多介绍却停留在入门阶段，无法投入生产
 - node相关的高质量面试题更是少之又少，很难全面考查应聘者的node能力
