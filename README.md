@@ -4,6 +4,9 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 # node开发技能图解  
 <img src="node_skillset.jpg" alt="">
 
+# node 事件循环机制
+<img src="event_loop.jpg" alt="">
+
 # 起源
 - node正风生火起，很多介绍却停留在入门阶段，无法投入生产
 - node相关的高质量面试题更是少之又少，很难全面考查应聘者的node能力
