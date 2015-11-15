@@ -21,12 +21,22 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 - 终极目标是让大家对node有一个快速完整的认识
 
 # 内容大纲
+- [ES6新特性] (#es6)
 - [javascript高级话题(面向对象，作用域，闭包，设计模式等)] (#jsAdvanced)
 - [node核心内置类库(事件，流，文件，网络等)] (#nodeCore)
 - [node高级话题(异步，部署，性能调优，异常调试等)] (#nodeAdvanced)
 - [常用知名第三方类库(Async, Express等)] (#node3rd)
 - [其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)] (#otherBackend)
 - [常用前端技术(Html5, CSS3, JQuery等)] (#otherFrontEnd)
+
+## <a name="es6">ES6新特性</a>
+- 1. ES6有哪些新特性？
+
+参考答案：类的支持，模块化，箭头操作符，let/const块作用域，字符串模板，解构，参数默认值/不定参数/拓展参数,for-of遍历,generato
+r器, Map/Set, Promise
+
+- 2. 你对ES6的个人看法？
+参考答案：ES6必火！从软件工程角度来看，以前真的很弱，不适合做大型应用，很容易导致烂尾工程。ES6就相当于当年的Java5,是历史性的发展，从此我们可以用js做大型项目了。事实上，各大主流浏览器现在已经支持大部分新特性了，后端的Node.js更是可以直接使用ES6的绝大多数语法。
 
 ## <a name="jsAdvanced">javascript高级话题(面向对象，作用域，闭包，设计模式等)</a>
 - 1. 常用js类定义的方法有哪些？  
