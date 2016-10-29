@@ -80,7 +80,7 @@ r器, Map/Set, Promise
 	function Animal() {
 		this.name = 'animal';
 	}
-	Animal.prototype.sayName = {
+	Animal.prototype.sayName = function(){
 		alert(this.name);
 	};
 
