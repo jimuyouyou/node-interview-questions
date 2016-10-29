@@ -323,10 +323,9 @@ r器, Map/Set, Promise
 参考答案: setTimeout/clearTimeout, setInterval/clearInterval, setImmediate/clearImmediate, process.nextTick   
 
 - 5. node中的事件循环是什么样子的?  
-
-参考答案: event loop其实就是一个事件队列，先加入先执行，执行完一次队列，再次循环遍历看有没有新事件加入队列．但是请务必注意，这一个事件队列的循环，一次只执行一个事件，然后下一次循环再执行一个事件．这是由于javascript的单线程机制导致的，如果一次循环多个事件，就可能会阻塞其它代码的执行．异步执行的叫IO events, setImmediate是在当前队列立即执行,setTimout/setInterval是把执行定时到到后面的队列，process.nextTick是在当前执行完，下次遍历前执行．所以总体顺序是: IO events >> setImmediate >> setTimeout/setInterval(注册事件) >> process.nextTick.
-
-<img src="event_loop.jpg" alt="">
+总体上执行顺序是：process.nextTick >> setImmidate >> setTimeout/SetInterval
+看官网吧：
+https://github.com/nodejs/node/blob/master/doc/topics/event-loop-timers-and-nexttick.md
 
 
 - 6. node中的Buffer如何应用?  
