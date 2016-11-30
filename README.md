@@ -93,7 +93,7 @@ r器, Map/Set, Promise
 	function Animal() {
 		this.name = 'animal';
 	}
-	Animal.prototype.sayName = {
+	Animal.prototype.sayName = function() {
 		alert(this.name);
 	};
 
@@ -109,7 +109,7 @@ r器, Map/Set, Promise
 	function Animal() {
 		this.name = 'animal';
 	}
-	Animal.prototype.sayName = {
+	Animal.prototype.sayName = function() {
 		alert(this.name);
 	};
 
@@ -196,9 +196,9 @@ r器, Map/Set, Promise
 
 参考答案: 闭包这个术语，无论中文翻译还是英文解释都太２Ｂ了，我必须骂人，因为它什么其实都不是．非要讲它是什么的话，两个字函数，更多字嵌套函数的父子自我引用关系．所有函数都是闭包．通俗的说，闭包就是作用域范围，因为js是函数作用域，所以函数就是闭包．全局函数的作用域范围就是全局，所以无须讨论．更多的应用其实是在内嵌函数，这就会涉及到内嵌作用域，或者叫作用域链．说到内嵌，其实就是父子引用关系(父函数包含子函数，子函数因为函数作用域又引用父函数，这它妈不是死结吗？所以叫闭包），这就会带来另外一个问题，什么时候引用结束？如果不结束，就会一直占用内存，引起内存泄漏．好吧，不用的时候就引用设为空，死结就解开了．
 
-- 9. defineProperty, hasOwnProperty, isEnumerable都是做什么用的？  
+- 9. defineProperty, hasOwnProperty, propertyIsEnumerable都是做什么用的？  
 
-参考答案：Object.defineProperty(obj, prop, descriptor)用来给对象定义属性,有value,writable,configurable,enumerable,set/get等.hasOwnProerty用于检查某一属性是不是存在于对象本身，继承来的父亲的属性不算．isEnumerable用来检测某一属性是否可遍历，也就是能不能用for..in循环来取到.
+参考答案：Object.defineProperty(obj, prop, descriptor)用来给对象定义属性,有value,writable,configurable,enumerable,set/get等.hasOwnProerty用于检查某一属性是不是存在于对象本身，继承来的父亲的属性不算．propertyIsEnumerable用来检测某一属性是否可遍历，也就是能不能用for..in循环来取到.
 
 - 10. js常用设计模式的实现思路，单例，工厂，代理，装饰，观察者模式等  
 
