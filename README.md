@@ -32,8 +32,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 ## <a name="es6">ES6新特性</a>
 - 1. ES6有哪些新特性？
 
-参考答案：类的支持，模块化，箭头操作符，let/const块作用域，字符串模板，解构，参数默认值/不定参数/拓展参数,for-of遍历,generato
-r器, Map/Set, Promise
+参考答案：类的支持，模块化，箭头操作符，let/const块作用域，字符串模板，解构，参数默认值/不定参数/拓展参数, for-of遍历, generator, Map/Set, Promise
 
 - 2. 你对ES6的个人看法？
 
