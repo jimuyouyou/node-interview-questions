@@ -325,7 +325,7 @@ r器, Map/Set, Promise
 - 5. node中的事件循环是什么样子的?  
 总体上执行顺序是：process.nextTick >> setImmidate >> setTimeout/SetInterval
 看官网吧：
-https://github.com/nodejs/node/blob/master/doc/topics/event-loop-timers-and-nexttick.md
+https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
 
 
 - 6. node中的Buffer如何应用?  
