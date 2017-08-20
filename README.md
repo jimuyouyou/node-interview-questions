@@ -307,7 +307,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 ### node全局对象
 - 1. node有哪些全局对象?  
 
-参考答案: process, console, Buffer和exports
+参考答案: process, console, Buffer
 
 - 2. process有哪些常用方法?  
 
