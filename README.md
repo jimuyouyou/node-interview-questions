@@ -566,6 +566,8 @@ process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为
 
 参考答案:  node --debug app.js 和node-inspector
 
+- 10. 如何捕获NodeJS中的错误，有几种方法?
+参考答案:  1) 监听错误事件req.on('error', function(){}), 适用EventEmitter存在的情况; 2) Promise.then.catch(error),适用Promise存在的情况 3) try-catch,适用async-await和js运行时异常，比如undefined object
 
 ## <a name="node3rd">常用知名第三方类库(Async, Express等)</a>  
 - 1. async都有哪些常用方法，分别是怎么用?  
