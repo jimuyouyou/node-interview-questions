@@ -695,3 +695,9 @@ res.sendStatus()	返回状态
 # node.js 设计模式
 - [HeadFirstDesignPatternInJavascript](https://github.com/jimuyouyou/HeadFirstDesignPatternInJavascript)
 - HeadFirstDesignPattern是一本非常经典的设计模式入门书籍。可是Javascript由于语言本身的限制，比较难以应用。随着新浏览器和Node.js开始普遍支持ES5, ES6,尤其是对类的支持。设计模式已经变得触手可及，对于大型Node.js项目更是非常必要。 HeadFirstDesignPatternInJavascript正是js版本的设计模式实现。
+
+# 招聘Node.js开发人员 - 坐标上海
+- 2年以上经验
+- 可以用英语进行技术交流和工作汇报
+- 薪资：15k - 25k
+- [详情点击] (https://www.lagou.com/jobs/4221129.html?source=pl&i=pl-0)
