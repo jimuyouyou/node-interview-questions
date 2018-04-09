@@ -1,7 +1,7 @@
 # node-interview-questions
 Node是搞后端的，不应该被被归为前端，更不应该用前端的观点去理解，去面试node开发人员。所以这份面试题大全，更侧重后端应用与对Node核心的理解。
 
-# node开发技能图解 
+# node开发技能图解
 <img src="node_skillset.jpg" alt="">
 
 # node 事件循环机制
@@ -21,15 +21,15 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 - 终极目标是让大家对node有一个快速完整的认识
 
 # 内容大纲
-- [ES6新特性] (#es6)
-- [javascript高级话题(面向对象，作用域，闭包，设计模式等)] (#jsAdvanced)
-- [node核心内置类库(事件，流，文件，网络等)] (#nodeCore)
-- [node高级话题(异步，部署，性能调优，异常调试等)] (#nodeAdvanced)
-- [常用知名第三方类库(Async, Express等)] (#node3rd)
-- [其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)] (#otherBackend)
-- [常用前端技术(Html5, CSS3, JQuery等)] (#otherFrontEnd)
+- [ES6新特性](#es6新特性)
+- [javascript高级话题(面向对象，作用域，闭包，设计模式等)](#javascript高级话题面向对象作用域闭包设计模式等)
+- [node核心内置类库(事件，流，文件，网络等)](#node核心内置类库事件流文件网络等)
+- [node高级话题(异步，部署，性能调优，异常调试等)](#node高级话题异步部署性能调优异常调试等)
+- [常用知名第三方类库(Async, Express等)](#常用知名第三方类库async-express等)
+- [其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)](#其它相关后端常用技术mongodb-redis-apache-nginx等)
+- [常用前端技术(Html5, CSS3, JQuery等)](#常用前端技术html5-css3-jquery等)
 
-## <a name="es6">ES6新特性</a>
+## ES6新特性
 - 1. ES6有哪些新特性？
 
 参考答案：类的支持，模块化，箭头操作符，let/const块作用域，字符串模板，解构，参数默认值/不定参数/拓展参数, for-of遍历, generator, Map/Set, Promise
@@ -38,9 +38,9 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 
 参考答案：ES6必火！从软件工程角度来看，以前真的很弱，不适合做大型应用，很容易导致烂尾工程。ES6就相当于当年的Java5,是历史性的发展，从此我们可以用js做大型项目了。事实上，各大主流浏览器现在已经支持大部分新特性了，后端的Node.js更是可以直接使用ES6的绝大多数语法。
 
-推荐ES6入门好书: [阮一峰 ECMAScript 6入门] (http://es6.ruanyifeng.com/)
+推荐ES6入门好书: [阮一峰 ECMAScript 6入门](http://es6.ruanyifeng.com/)
 
-## <a name="jsAdvanced">javascript高级话题(面向对象，作用域，闭包，设计模式等)</a>
+## javascript高级话题(面向对象，作用域，闭包，设计模式等)
 - 1. 常用js类定义的方法有哪些？  
 
 参考答案：主要有构造函数原型和对象创建两种方法。原型法是通用老方法，对象创建是ES5推荐使用的方法.目前来看，原型法更普遍.  
@@ -160,17 +160,17 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 	function Person() {
 	}
 	Person.prototype.sayName() { alert(this.name); }
-	
+
 	var obj = {name: 'michaelqin'}; // 注意这是一个普通对象，它不是Person的实例
 	1) apply
 	Person.prototype.sayName.apply(obj, [param1, param2, param3]);
-	
+
 	2) call
 	Person.prototype.sayName.call(obj, param1, param2, param3);
 
 	3) bind
-	var sn = Person.prototype.sayName.bind(obj);	
-	sn([param1, param2, param3]); // bind需要先绑定，再执行 
+	var sn = Person.prototype.sayName.bind(obj);
+	sn([param1, param2, param3]); // bind需要先绑定，再执行
 	sn(param1, param2, param3); // bind需要先绑定，再执行
 ```
 - 7. caller, callee和arguments分别是什么?  
@@ -226,7 +226,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 	Person.prototype.sayName = function() { console.log('michaelqin'); }
 	Person.prototype.sayAge = function() { console.log(30); }
 
-	function PersonProxy() { 
+	function PersonProxy() {
 		this.person = new Person();
 		var that = this;
 		this.callMethod = function(functionName) {
@@ -238,7 +238,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 
 	var pp = new PersonProxy();
 	pp.callMethod('sayName'); // 代理调用Person的方法sayName()
-	pp.callMethod('sayAge'); // 代理调用Person的方法sayAge()	
+	pp.callMethod('sayAge'); // 代理调用Person的方法sayAge()
 
 	4) 观察者: 就是事件模式，比如按钮的onclick这样的应用.
 	function Publisher() {
@@ -287,7 +287,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 
 参考答案: indexOf/lastIndexOf/charAt, split/match/test, slice/substring/substr, toLowerCase/toUpperCase
 
-## <a name="nodeCore">node核心内置类库(事件，流，文件，网络等)</a>
+## node核心内置类库(事件，流，文件，网络等)
 ### node概览
 
 - 1. 为什么要用node?  
@@ -302,7 +302,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 
 - 3. node有哪些核心模块?  
 
-参考答案:  EventEmitter, Stream, FS, Net和全局对象 
+参考答案:  EventEmitter, Stream, FS, Net和全局对象
 
 ### node全局对象
 - 1. node有哪些全局对象?  
@@ -401,7 +401,7 @@ emitter3.on('hello', function(){
 ### Stream
 - 1. 什么是Stream?  
 
-参考答案:  stream是基于事件EventEmitter的数据管理模式．由各种不同的抽象接口组成，主要包括可写，可读，可读写，可转换等几种类型． 
+参考答案:  stream是基于事件EventEmitter的数据管理模式．由各种不同的抽象接口组成，主要包括可写，可读，可读写，可转换等几种类型．
 
 - 2. Stream有什么好处?  
 
@@ -478,7 +478,7 @@ process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为
 		res.writeHead(200, {'Content-Type': 'text/html'}); // 200代表状态成功, 文档类型是给浏览器识别用的
 		res.write('<meta charset="UTF-8"> <h1>我是标题啊！</h1> <font color="red">这么原生，初级的服务器，下辈子能用着吗?!</font>'); // 返回给客户端的html数据
 		res.end(); // 结束输出流
-	}).listen(3000); // 绑定3ooo, 查看效果请访问 http://localhost:3000 
+	}).listen(3000); // 绑定3ooo, 查看效果请访问 http://localhost:3000
 ```
 ### child-process
 - 1. 为什么需要child-process?  
@@ -529,7 +529,7 @@ process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为
 
 参考答案: 概念都是一样的，输入，输出，错误，都是流．区别是在父程序眼里，子程序的stdout是输入流，stdin是输出流．
 
-## <a name="nodeAdvanced">node高级话题(异步，部署，性能调优，异常调试等)</a>  
+## node高级话题(异步，部署，性能调优，异常调试等)
 - 1. node中的异步和同步怎么理解  
 
 参考答案: node是单线程的，异步是通过一次次的循环事件队列来实现的．同步则是说阻塞式的IO,这在高并发环境会是一个很大的性能问题，所以同步一般只在基础框架的启动时使用，用来加载配置文件，初始化程序什么的．   
@@ -569,7 +569,7 @@ process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为
 - 10. 如何捕获NodeJS中的错误，有几种方法?
 参考答案:  1) 监听错误事件req.on('error', function(){}), 适用EventEmitter存在的情况; 2) Promise.then.catch(error),适用Promise存在的情况 3) try-catch,适用async-await和js运行时异常，比如undefined object
 
-## <a name="node3rd">常用知名第三方类库(Async, Express等)</a>  
+## 常用知名第三方类库(Async, Express等)
 - 1. async都有哪些常用方法，分别是怎么用?  
 
 参考答案: async是一个js类库，它的目的是解决js中异常流程难以控制的问题．async不仅适用在node.js里，浏览器中也可以使用．
@@ -596,29 +596,29 @@ process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为
 	        callback(null, 'one', 'two');
 	    },
 	    function(arg1, arg2, callback) {
-	      // arg1 now equals 'one' and arg2 now equals 'two' 
+	      // arg1 now equals 'one' and arg2 now equals 'two'
 	        callback(null, 'three');
 	    },
 	    function(arg1, callback) {
-	        // arg1 now equals 'three' 
+	        // arg1 now equals 'three'
 	        callback(null, 'done');
 	    }
 	], function (err, result) {
-	    // result now equals 'done' 
+	    // result now equals 'done'
 	});
 ```
 
 4) async.map异步执行多个数组，返回结果数组
 ```javascript
 	async.map(['file1','file2','file3'], fs.stat, function(err, results){
-	    // results is now an array of stats for each file 
+	    // results is now an array of stats for each file
 	});
 ```
 
 5) async.filter异步过滤多个数组，返回结果数组
 ```javascript
 	async.filter(['file1','file2','file3'], fs.exists, function(results){
-	    // results now equals an array of the existing files 
+	    // results now equals an array of the existing files
 	});
 ```
 - 2. express项目的目录大致是什么样子的
@@ -631,11 +631,11 @@ process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为
 
 - 4. express中如何获取路由的参数
 
-参考答案: /users/:name使用req.params.name来获取; req.body.username则是获得表单传入参数username; express路由支持常用通配符 ?, +, *, and ()
+参考答案: /users/:name使用req.params.name来获取; req.body.username则是获得表单传入参数username; express路由支持常用通配符 ?, +, \*, and ()
 
 - 5. express response有哪些常用方法
 
-参考答案: 
+参考答案:
 res.download()	弹出文件下载  
 res.end()	结束response  
 res.json()	返回json  
@@ -646,11 +646,11 @@ res.send()	返回多种形式数据
 res.sendFile	返回文件  
 res.sendStatus()	返回状态  
 
-## <a name="otherBackend">其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)</a>      
+## 其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)
 
 - 1. mongodb有哪些常用优化措施
 
-参考答案: 类似传统数据库，索引和分区． 
+参考答案: 类似传统数据库，索引和分区．
 
 - 2. mongoose是什么？有支持哪些特性?
 
@@ -662,7 +662,7 @@ res.sendStatus()	返回状态
 
 - 3. redis最简单的应用
 
-参考答案: 
+参考答案:
 ```javascript
 	var redis = require("redis"),
 	    client = redis.createClient();
@@ -678,7 +678,7 @@ res.sendStatus()	返回状态
 
 参考答案: 二者都是代理服务器，功能类似．apache应用简单，相当广泛．nginx在分布式，静态转发方面比较有优势．
 
-## <a name="otherFrontEnd">常用前端技术(Html5, CSS3, JQuery等)</a>
+## 常用前端技术(Html5, CSS3, JQuery等)
 
 - 1. Html5有哪些比较实用新功能
 
@@ -693,5 +693,5 @@ res.sendStatus()	返回状态
 参考答案: 文档选择，文档操作，动画, ajax, json, js扩展等.
 
 # node.js 设计模式
-- [HeadFirstDesignPatternInJavascript] (https://github.com/jimuyouyou/HeadFirstDesignPatternInJavascript)
+- [HeadFirstDesignPatternInJavascript](https://github.com/jimuyouyou/HeadFirstDesignPatternInJavascript)
 - HeadFirstDesignPattern是一本非常经典的设计模式入门书籍。可是Javascript由于语言本身的限制，比较难以应用。随着新浏览器和Node.js开始普遍支持ES5, ES6,尤其是对类的支持。设计模式已经变得触手可及，对于大型Node.js项目更是非常必要。 HeadFirstDesignPatternInJavascript正是js版本的设计模式实现。
