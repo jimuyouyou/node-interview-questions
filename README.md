@@ -250,7 +250,7 @@ Node是搞后端的，不应该被被归为前端，更不应该用前端的观�
 		},
 
 		'removeListener': function(listener) {
-			delete this.listeners[listener];
+			delete this.listeners[this.listeners.indexOf(listener)];
 		},
 
 		'notify': function(obj) {
