@@ -700,4 +700,4 @@ res.sendStatus()	返回状态
 - 2年以上经验
 - 学习能力，解决问题能力特别突出者可以放宽要求
 - 薪资：15k - 25k
-- [详情点击] (https://www.lagou.com/jobs/4221129.html?source=pl&i=pl-0)
+- [详情点击] (https://www.lagou.com/jobs/2826660.html?source=pl&i=pl-0)
