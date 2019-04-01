@@ -701,3 +701,7 @@ res.sendStatus()	返回状态
 - 学习能力，解决问题能力特别突出者可以放宽要求
 - 薪资：15k - 25k
 - [详情点击] (https://www.lagou.com/jobs/2826660.html?source=pl&i=pl-0)
+
+License
+---
+[Anti-996 License](LICENSE)
