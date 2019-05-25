@@ -696,11 +696,12 @@ res.sendStatus()	返回状态
 - [HeadFirstDesignPatternInJavascript](https://github.com/jimuyouyou/HeadFirstDesignPatternInJavascript)
 - HeadFirstDesignPattern是一本非常经典的设计模式入门书籍。可是Javascript由于语言本身的限制，比较难以应用。随着新浏览器和Node.js开始普遍支持ES5, ES6,尤其是对类的支持。设计模式已经变得触手可及，对于大型Node.js项目更是非常必要。 HeadFirstDesignPatternInJavascript正是js版本的设计模式实现。
 
-# 招聘Node.js开发人员 - 坐标上海
-- 2年以上经验
-- 学习能力，解决问题能力特别突出者可以放宽要求
-- 薪资：15k - 25k
-- [详情点击] (https://www.lagou.com/jobs/2826660.html?source=pl&i=pl-0)
+# 上海植物园 龙南找合租
+- 位置： 徐家汇合租 1号线3号线 上海南站
+- 小区：园南一村
+- 概况：
+非中介长租公司，无服务费，卫生费，宽带费等杂费。自己整租的一套2室房子，其中一室出租。房子精装修，特别干净整洁，家具家电都是新的适合对生活品质有一点追求的人士。离地铁1号线，3号线上海南站较近。旁边有大量公交车，可直达徐家汇各街道，骑共享单车的话25分钟可到龙华，时间亲测真实可靠，因为我自己就在绿地汇中心云锦路地铁站那边上班。 要求为男生，或小情侣，工作稳定，干净整洁，无不良嗜好。联系电话：18951818159
+- [咸鱼网址](https://2.taobao.com/item.htm?id=594862193587)
 
 License
 ---
