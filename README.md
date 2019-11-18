@@ -700,4 +700,4 @@ res.sendStatus()	返回状态
 
 License
 ---
-[Anti-996 License](LICENSE)
+[Anti-996 License](https://github.com/kattgu7/Anti-996-License)
